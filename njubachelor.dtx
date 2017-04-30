@@ -285,7 +285,7 @@
 \RequirePackage[colorlinks,citecolor=black,linkcolor=black]{hyperref}
 \RequirePackage{calc}
 \RequirePackage[numbers,sort&compress]{natbib}
-\RequirePackage{hypernat}
+%\RequirePackage{hypernat}
 %    \end{macrocode}
 % 设置需要在正文开头执行的内容，
 % 包括 pdf 文件属性设置和行距设置。
@@ -676,9 +676,9 @@
   \vspace{0.5em}\kaishu\zihao{4}\noindent
   \begin{Description}{\NJU@cabstract@thesistitle}
     \item[\NJU@cabstract@thesistitle]
-      \ifNJU@longtitle \uline{\NJU@ctitle\hfill}
+      \ifNJU@longtitle {\NJU@ctitle\hfill}
       \else
-        \ifNJU@shorttitle \uline{\hfill\NJU@ctitle\hfill}
+        \ifNJU@shorttitle {\hfill\NJU@ctitle\hfill}
         \else
           \ifNJU@manualtitle
             \@for \NJU@mtitlen:=\NJU@mtitle \do
@@ -687,27 +687,14 @@
         \fi
       \fi
   \end{Description}
-  \ifNJU@shortdepspe
-    \makebox[18em]{%
-      \uline{\hfill\NJU@cdepartment\hfill}
-        \NJU@cabstract@department
-      \uline{\hfill\NJU@cspecialization\hfill}
-        \NJU@cabstract@specialization}
-      \uline{\makebox[1.8em][c]{\NJU@grade}}
-        \NJU@cabstract@grad \NJU@cabstract@author
-      \uline{\hfill{\NJU@cauthor}\hfill}\\[0.6em]
-  \else
-    \uline{\hfill\NJU@cdepartment\hfill}
-      \NJU@cabstract@department
-    \uline{\hfill\NJU@cspecialization\hfill}
-      \NJU@cabstract@specialization\\[0.6em]
-    \uline{\makebox[1.8em][c]{\NJU@grade}}
-      \NJU@cabstract@grad \NJU@cabstract@author
-    \uline{\hfill{\NJU@cauthor}\hfill}
-  \fi
-  \NJU@cabstract@mentor
-  \uline{\hfill{\NJU@cmentor\ \NJU@cmentortitle}\hfill}\\[0.6em]
-  \NJU@cabstract@shorttitle
+\begin{Description}{}
+	\item[\NJU@cabstract@department:] \NJU@cdepartment
+	\item[\NJU@cabstract@specialization:] \NJU@cspecialization
+	\item[\NJU@cabstract@author] \NJU@cauthor
+	\item[\NJU@cabstract@mentor] \NJU@cmentor \NJU@cmentortitle
+	\item[\NJU@cabstract@shorttitle] 
+\end{Description}
+  
   \par \vspace{1em}\zihao{-4}\setlength{\baselineskip}{1.12\baselineskip}}
   {\kaishu\makeckeywords\clearpage}
 \newenvironment{eabstract}{
