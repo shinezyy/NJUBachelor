@@ -260,7 +260,7 @@
 \RequirePackage{graphicx}
 \RequirePackage{picinpar}
 \RequirePackage{wrapfig}
-\RequirePackage{subfigure}
+\RequirePackage{subcaption}
 %    \end{macrocode}
 % 载入表格相关宏包
 %    \begin{macrocode}
@@ -599,6 +599,7 @@
                 \ifNJU@manualtitle
                   \@for \NJU@mtitlen:=\NJU@mtitle \do
                     {\uline{\hfill\NJU@mtitlen\hfill}\par}
+					%\uline{\NJU@mtitle\hfill}
                 \fi
               \fi
             \fi \par
@@ -681,19 +682,17 @@
         \ifNJU@shorttitle {\hfill\NJU@ctitle\hfill}
         \else
           \ifNJU@manualtitle
-            \@for \NJU@mtitlen:=\NJU@mtitle \do
-              {\uline{\hfill\NJU@mtitlen\hfill}\par}
+		    {\NJU@ctitle\hfill}
           \fi
         \fi
       \fi
-  \end{Description}
-\begin{Description}{}
+
 	\item[\NJU@cabstract@department:] \NJU@cdepartment
 	\item[\NJU@cabstract@specialization:] \NJU@cspecialization
 	\item[\NJU@cabstract@author] \NJU@cauthor
 	\item[\NJU@cabstract@mentor] \NJU@cmentor \NJU@cmentortitle
 	\item[\NJU@cabstract@shorttitle] 
-\end{Description}
+  \end{Description}
   
   \par \vspace{1em}\zihao{-4}\setlength{\baselineskip}{1.12\baselineskip}}
   {\kaishu\makeckeywords\clearpage}
